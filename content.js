@@ -1,10 +1,10 @@
 chrome.runtime.onMessage.addListener(function(msg, sender, sendResponse) {
     if (msg === 'url-update') {
-        remove();
+        removeSuggestedVideos();
     }
 });
 
-function remove() {
+function removeSuggestedVideos() {
     // Removes suggestions on home page
     const homeContainer = document.querySelector('ytd-two-column-browse-results-renderer');
     if (homeContainer) {
@@ -12,8 +12,9 @@ function remove() {
     }
 
     // Removes recommended videos on sidebar
-    const related = document.querySelector('#secondary');
-    if (related) {
-        related.remove();
+    const secondary = document.querySelector('#secondary');
+    if (secondary) {
+        document.querySelector('#related').remove();
+        secondary.remove();
     }
 }
