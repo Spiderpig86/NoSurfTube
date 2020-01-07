@@ -1,0 +1,24 @@
+{
+    "name": "NoSurfTube",
+    "description": "A Chrome extension to block recommended/suggested video.",
+    "version": "0.0.1",
+    "background": {
+        "scripts": ["background.js"],
+        "persistent": false
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "https://www.youtube.com/*"
+            ],
+            "js": [
+                "content.js"
+            ],
+            "run_at": "document_end"
+        }
+    ],
+    "permissions": [
+        "tabs"
+    ],
+    "manifest_version": 2
+}
